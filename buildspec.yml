@@ -1,0 +1,24 @@
+version: 0.1
+pipelines:
+  default:
+    - step:
+        name: Deploy to AWS EBS
+        deployment: production
+        caches:
+          - pip
+        script:
+        - pipe: atlassian/aws-elasticbeanstalk-deploy:0.6.0
+          variables:
+            AWS_ACCESS_KEY_ID: 'AKIARUWSZVWCMMQU7H4Z'
+            AWS_SECRET_ACCESS_KEY: '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'
+            AWS_DEFAULT_REGION: 'us-east-2'
+            APPLICATION_NAME: 'voucherwing'
+            ENVIRONMENT_NAME: 'Voucherwing-env'
+            ZIP_FILE: 'voucherwing.zip'
+      # S3_BUCKET: '<string>' # Optional.
+      # VERSION_LABEL: '<string>' # Optional.
+      # DESCRIPTION: '<string>' # Optional.
+      # WAIT: '<boolean>' # Optional.
+      # WAIT_INTERVAL: '<integer>' # Optional.
+      # COMMAND: '<string>' # Optional.
+      # DEBUG: '<boolean>' # Optional.
